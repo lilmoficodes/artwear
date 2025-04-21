@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overscroll-behavior: none;
+  touch-action: auto;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/NeueMontreal.woff") format("woff");
+}
+
+.font-neue {
+  font-family: "Neue Montreal", sans-serif , Helvetica;
+}
+ ::-webkit-scrollbar {
+  scrollbar-width: none;
+}
+
