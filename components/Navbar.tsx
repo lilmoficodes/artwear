@@ -16,6 +16,8 @@ const Navbar = () => {
           <h1 className="text-xl md:text-3xl">Artwear</h1>
         </Link>
       </div>
+      <div>
+      </div>
       {status === "loading" ? (
         <div className="w-full flex-1" />
       ) : session?.user ? (
@@ -40,7 +42,7 @@ const Navbar = () => {
         </>
       ) : (
         <div className="flex gap-3">
-          <SignupBtn/>
+          <SignupBtn />
           <LoginBtn />
         </div>
       )}
