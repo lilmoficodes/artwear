@@ -19,7 +19,9 @@ const SettingsPage = () => {
   return (
     <main className="p-4">
       <div className="text-white text-lg block">
-        {username || "No username found"}
+       <div className="text-3xl text-center">
+       Welcome {username || "No username found"}
+        </div>  
       </div>
     </main>
   );

@@ -3,7 +3,7 @@ import { auth } from "./auth";
 
 export default auth((req)=>{
   const isAuthenticated = req.auth?.user
-  const protectedRoutes = ["/dashboard", "/payment", "/profile", "/paymentdone"];
+  const protectedRoutes = ["/dashboard", "/payment", "/profile", "/paymentdone", "/settings"];
   const publicAuthPages = ["/login", "/signup"];
   if (protectedRoutes.includes(req.nextUrl.pathname) && !isAuthenticated) {
     console.log("User is not authenticated. Redirecting...");

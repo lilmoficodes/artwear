@@ -70,6 +70,15 @@ callbacks: {
       }
       return !!user;
     }
+  },
+  cookies: {
+    sessionToken: {
+      name: `next-auth.session-token`,
+      options: {
+        domain: undefined, // 👈 this avoids "must contain a domain" error
+      },
+    },
   }
+  
   
 })

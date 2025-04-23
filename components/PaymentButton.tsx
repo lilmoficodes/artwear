@@ -64,7 +64,7 @@ const handlePayment = async (amount: number) => {
     order_id : order.order_id,
     currency: order.currency,
     customer_id: order.customer_id,
-    callback_url : process.env.NEXT_PUBLIC_RAZORPAY_CALLBACK,
+    callback_url : `${window.location.origin}/paymentdone`,
     name: "Artwear",
     description: "Purchase from Artwear",
     theme: { color: "#000" },
