@@ -35,7 +35,8 @@ providers : [Credentials({
       }
         return {
             email : User?.email,
-            id : User?.id
+            id : User?.id,
+            name : User?.email,
         }
     },
 }), Google({
@@ -70,15 +71,5 @@ callbacks: {
       }
       return !!user;
     }
-  },
-  cookies: {
-    sessionToken: {
-      name: `next-auth.session-token`,
-      options: {
-        domain: undefined, // 👈 this avoids "must contain a domain" error
-      },
-    },
-  }
-  
-  
+  },  
 })
