@@ -23,7 +23,6 @@ export default function ParticlesBackground({
             id="tsparticles"
             options={{
                 fullScreen: { enable: true, zIndex },
-                background: { color: "#000" },
                 interactivity: {
                     events: {
                         onHover: {
