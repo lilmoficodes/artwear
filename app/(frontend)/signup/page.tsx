@@ -3,11 +3,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState, ChangeEvent } from "react";
 import SignInButton from "@/components/SignInButton";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 gsap.registerPlugin(useGSAP);
 const SignupPage = () => {
-  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const welcomebackref = useRef<HTMLHeadingElement>(null);
@@ -38,16 +35,6 @@ const SignupPage = () => {
       }
   
       // Then immediately sign in
-      const res = await signIn("credentials", {
-        redirect: false,
-        email,
-        password,
-      });
-  
-      console.log("Signup then login response:", res);
-      if (res?.ok) {
-        router.push("/"); // redirect to homepage or dashboard
-      }
   
     } catch (error) {
       console.error("Error during signup/login:", error);

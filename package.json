@@ -25,6 +25,7 @@
     "bcryptjs": "^3.0.2",
     "graphql": "^16.10.0",
     "gsap": "^3.12.7",
+    "jsonwebtoken": "^9.0.2",
     "lenis": "^1.2.3",
     "next": "15.2.5",
     "next-auth": "^5.0.0-beta.25",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

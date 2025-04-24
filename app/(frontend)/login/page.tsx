@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState, ChangeEvent } from "react";
@@ -22,7 +22,6 @@ const LoginPage = () => {
   };
   const handleLogin = async () => {
     const res = await signIn("credentials", {
-      redirect: false,
       email,
       password,
     });

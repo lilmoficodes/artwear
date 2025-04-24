@@ -29,14 +29,14 @@ providers : [Credentials({
         credentials.password as string,
         User.password
       );
-
+  console.log("Recieved user", User)
       if (!isPasswordCorrect) {
         throw new Error("Incorrect password");
       }
         return {
             email : User?.email,
             id : User?.id,
-            name : User?.email,
+            password : User?.password
         }
     },
 }), Google({
@@ -72,4 +72,4 @@ callbacks: {
       return !!user;
     }
   },  
-})
+}) 
