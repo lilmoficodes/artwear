@@ -43,13 +43,14 @@ const Footer = () => {
         <div className="text-black text-3xl md:text-5xl text-center uppercase underline">Follow us on</div>
         <div className="icons mt-10 border-b-2 border-cyan-950 pb-3">
           <div className="flex justify-around" ref={footertextRefdiv}>
-            <BsTwitterX size={35} color="#000" />
-            <FaInstagram size={35} color="#000" />
-            <FaFacebookF size={35} color="#000" />
+            <BsTwitterX size={30} color="#000" />
+            <FaInstagram size={30} color="#000" />
+            <FaFacebookF size={30} color="#000" />
           </div>
         </div>
         <div>
-          <h1 ref={footertextRefheading} className="text-4xl md:text-7xl underline text-center text-black uppercase md:mt-4 p-2">since 2025</h1>
+          <h1 ref={footertextRefheading} className="text-4xl md:text-6xl underline text-center 
+          text-black uppercase md:mt-4 p-2">since 2025</h1>
         </div>
       </div>
       <div className="h-24 bg-slate-900 rounded-lg text-gray-400 px-1">
