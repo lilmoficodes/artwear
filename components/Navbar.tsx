@@ -5,7 +5,6 @@ import SignupBtn from "./SignupBtn"
 import { useSession } from "next-auth/react"
 import Link from "next/link";
 import { IoSettingsOutline } from "react-icons/io5";
-import SignOut from "./SignOut";
 const Navbar = () => {
   const { data: session, status } = useSession();
 

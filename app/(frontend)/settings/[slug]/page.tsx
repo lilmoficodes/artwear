@@ -1,7 +1,6 @@
 "use client"
 import { useParams } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import SignOut from "@/components/SignOut";
 const SignoutPage = () => {
     const { data: session } = useSession();
