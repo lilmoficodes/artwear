@@ -19,9 +19,6 @@ const Navbar = () => {
       </div>
       <div>
       </div>
-      <div>
-        <SignOut/>  
-      </div>
       {status === "loading" ? (
         <div className="w-full flex-1" />
       ) : session?.user ? (

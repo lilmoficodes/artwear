@@ -14,7 +14,7 @@ export default function ParticlesBackground({
     color = "yellow",
 }: ParticlesBackgroundProps) {
     useEffect(() => {
-        loadAll(tsParticles); // ✅ Load engine only once here
+        loadAll(tsParticles);
     }, []);
 
     return (
@@ -28,13 +28,13 @@ export default function ParticlesBackground({
                     events: {
                         onHover: {
                             enable: true,
-                            mode: "repulse",
+                            mode: "attract",
                         },
                     },
                     modes: {
                         repulse: {
-                            distance: 100,
-                            duration: 1.5,
+                            distance: 120,
+                            duration: 1.2,
                         }
                     }
                 },
@@ -59,6 +59,7 @@ export default function ParticlesBackground({
                             enable: true,
                             speed: 0.02,
                             startValue: "max",
+                            sync : false,
                             destroy: "min",
                         },
                     },
