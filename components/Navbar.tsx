@@ -97,16 +97,16 @@ const Navbar = () => {
                  flex-col gap-6 justify-center
                   items-center overflow-hidden md:hidden py-3" >
             <Link href={"/products"} onClick={() => setIsDropdownOpen(false)}>
-              <li className="text-xl">Products</li>
+              <li className="">Products</li>
             </Link>
             <Link href={"/aboutus"} onClick={() => setIsDropdownOpen(false)}>
-              <li className="text-xl">About us</li>
+              <li className="">About us</li>
             </Link>
             <Link href={"/services"} onClick={() => setIsDropdownOpen(false)}>
-              <li className="text-xl">Services</li>
+              <li className="">Services</li>
             </Link>
             <Link href={"/settings"} onClick={() => setIsDropdownOpen(false)}>
-              <li className="text-xl flex justify-center items-center gap-2">
+              <li className="flex justify-center items-center gap-2">
                 <IoSettingsOutline size={20} /> Settings
               </li>
             </Link>
