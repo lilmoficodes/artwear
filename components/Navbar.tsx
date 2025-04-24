@@ -45,6 +45,39 @@ const Navbar = () => {
   }, [isDropdownOpen]);
 
   return (
+    <>
+   <nav>
+   {isDropdownOpen && (
+              <>
+              <ul
+                ref={dropdownRef}
+                className=" absolute top-0 h-full w-full text-center bg-black text-white flex
+                 flex-col gap-6 justify-center items-center overflow-hidden z-[999]" >
+                 <ParticlesBackground/>
+                <div className="absolute top-8 right-0 pr-3">
+                  <button onClick={()=>setIsDropdownOpen(!isDropdownOpen)}>
+                    <RxCross2 size={40}/>
+                  </button>
+                </div>
+                <Link href={"/products"} onClick={() => setIsDropdownOpen(false)}>
+                  <li className="text-xl hover:text-yellow-300">Products</li>
+                </Link>
+                <Link href={"/aboutus"} onClick={() => setIsDropdownOpen(false)}>
+                  <li className="text-xl hover:text-yellow-300">About us</li>
+                </Link>
+                <Link href={"/services"} onClick={() => setIsDropdownOpen(false)}>
+                  <li className="text-xl hover:text-yellow-300">Services</li>
+                </Link>
+                <Link href={"/settings"} onClick={() => setIsDropdownOpen(false)}>
+                  <li className="text-xl hover:text-yellow-300 flex justify-center items-center gap-2">
+                    <IoSettingsOutline size={20} /> Settings
+                  </li>
+                </Link>
+              </ul>
+              </>
+            
+            )}
+   </nav>
     <nav className="rounded-md backdrop-blur-md bg-transparent 
     flex items-center justify-between px-3 p-8 z-50 sticky top-0
      border border-[rgba(255,255,255,0.3)] uppercase">
@@ -77,36 +110,6 @@ const Navbar = () => {
             <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
               <RxHamburgerMenu size={30} />
             </button>
-            {isDropdownOpen && (
-              <>
-              <ul
-                ref={dropdownRef}
-                className="absolute origin-top scale-y-0 h-screen inset-0 text-center left-0 right-0 top-0 bg-black text-white flex
-                 flex-col gap-6 justify-center w-screen items-center overflow-hidden z-50" >
-                 <ParticlesBackground/>
-                <div className="absolute top-8 right-0 pr-3">
-                  <button onClick={()=>setIsDropdownOpen(!isDropdownOpen)}>
-                    <RxCross2 size={40}/>
-                  </button>
-                </div>
-                <Link href={"/products"} onClick={() => setIsDropdownOpen(false)}>
-                  <li className="text-xl hover:text-yellow-300">Products</li>
-                </Link>
-                <Link href={"/aboutus"} onClick={() => setIsDropdownOpen(false)}>
-                  <li className="text-xl hover:text-yellow-300">About us</li>
-                </Link>
-                <Link href={"/services"} onClick={() => setIsDropdownOpen(false)}>
-                  <li className="text-xl hover:text-yellow-300">Services</li>
-                </Link>
-                <Link href={"/settings"} onClick={() => setIsDropdownOpen(false)}>
-                  <li className="text-xl hover:text-yellow-300 flex justify-center items-center gap-2">
-                    <IoSettingsOutline size={20} /> Settings
-                  </li>
-                </Link>
-              </ul>
-              </>
-            
-            )}
           </div>
         </>
       ) : (
@@ -116,6 +119,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </>
   );
 };
 
