@@ -76,7 +76,7 @@ const ProductsPage = () => {
               {item.productImage && (
                 <div className="relative w-full h-80 overflow-hidden">
                   <Image
-                    src={item.productImage.url}
+                    src={`${process.env.NEXT_PUBLIC_SERVER_URL as  string}${item.productImage.url}`}
                     alt={item.productName}
                     layout="fill"
                     objectFit="cover"
