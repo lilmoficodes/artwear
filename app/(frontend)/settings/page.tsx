@@ -1,92 +1,76 @@
-"use client"
-import { useEffect, useState } from "react"
-import { useSession } from "next-auth/react"
-import ParticlesBackground from "@/components/ParticlesBackground";
-import Link from "next/link";
+"use client";
+import { useSession } from "next-auth/react";
 
-const SettingsPage = () => {
-  const { data: session, status } = useSession();
-  const [email, setEmail] = useState<string | undefined>("");
-  useEffect(() => {
-    if (session?.user?.email) {
-      setEmail(session.user.email);
-    }
-  }, [session]);
-
-  if (status === "loading") {
-    return <div className="text-white text-center text-2xl">Loading...</div>;
-  }
+export default function SettingsPage() {
+  const { data: session } = useSession();
 
   return (
-    <>
-      <ParticlesBackground />
-      <main className="">
-        <div className="sticky top-0 text-white text-lg backdrop-blur-2xl
-         bg-transparent py-8 border border-white/30 rounded-lg">
-          <div className="text-2xl underline md:text-3xl text-center">
-            Welcome {email && email.split("@")[0] || "No username found"}
-          </div>
-        </div>
-        <div className="border border-white/20 mt-5 rounded-md">
-          <h1 className="text-2xl my-3 uppercase underline  text-center">Account Settings🔔</h1>
-          <div>
-            <ol className="text-lg uppercase underline decoration-white/30">
-             <Link href={"settings/signout"}>
-             <li className="border border-white/10 text-white/60
-               active:text-white hover:text-white transition duration-200
-                ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Sign Out</li>              
-             </Link>
-             <Link href={"settings/changepassword"}>
-             <li className="border border-white/10 text-white/60
-               active:text-white hover:text-white transition duration-200
-                ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Change Password</li>   
-             </Link>
-             <Link href={"settings/twofa"}>
-             <li className="border border-white/10 text-white/60
-               active:text-white hover:text-white transition duration-200
-                ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Two-Factor Authentication (2FA)</li>             
-             </Link>
-             <Link href={"settings/updateusername"}>
-             <li className="border border-white/10 text-white/60
-                active:text-white hover:text-white transition duration-200 
-                ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Update Username</li>
-             </Link>
-             <Link href={"settings/deactivate"}>
-             <li className="border border-white/10 text-white/60
-               active:text-white hover:text-white transition duration-200
-                ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Deactivate Account</li>
-             </Link>  
-             <Link href={"settings/delete"}>
-             <li className="border border-white/10 text-white/60
-               active:text-white hover:text-white transition duration-200
-                ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Delete Account</li>
-             </Link>    
-            </ol>
-          </div>
-        </div>
-        <div className="mt-7 py-3 border border-white/20 rounded-md">
-          <h1 className="text-center uppercase underline text-2xl">🎨 Appearance / Theme</h1>
-          <ol className="uppercase text-lg underline decoration-white/30 mt-2 ">
-            <li className="border border-white/20 text-white/60 active:text-white
-             hover:text-white transition duration-200 ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Light / Dark Mode Toggle</li>
-            <li className="border  border-white/20 text-white/60
-             active:text-white hover:text-white transition duration-200 ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">Theme Customization (colors, fonts, layout density)</li>
-          </ol>
-        </div>
-        <div className="mt-7 py-3 border border-white/20 rounded-md">
-          <h1 className="text-center uppercase underline text-xl">🌍 Language & Localization</h1>
-          <ol className="uppercase text-lg underline decoration-white/30 mt-2 ">
-          {["Language Selection", "Timezone Settings", "Date & Time Format"].map((item, i) => (
-            <li key={i} className="border border-white/10 text-white/60 active:text-white hover:text-white transition duration-200 ease-in-out cursor-pointer rounded-sm text-center my-3 p-1">
-              {item}
-            </li>
-          ))}
-           </ol>
-        </div>
-      </main>
-    </>
+    <main className="min-h-screen bg-gradient-to-tr from-purple-900 via-black to-black text-white px-6 py-10">
+      <div className="max-w-4xl mx-auto backdrop-blur-lg bg-white/5 rounded-xl border border-white/10 shadow-xl p-8">
+        {/* Header */}
+        <h1 className="text-3xl font-bold mb-6 border-b border-white/10 pb-4">Settings</h1>
 
+        {/* Profile Summary */}
+        <div className="flex items-center space-x-4 mb-10">
+          <img
+            src={`${session && session?.user?.image}`}
+            alt="avatar"
+            className="w-14 h-14 rounded-full border border-white/20"
+          />
+          <div>
+            <p className="text-lg font-medium">{session?.user?.email}</p>
+            <p className="text-sm text-gray-400">Account settings and preferences</p>
+          </div>
+        </div>
+
+        {/* Settings Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 cursor-pointer">
+          {/* Account Settings */}
+          <div className="bg-white/5 rounded-lg p-6 border border-white/10 hover:border-purple-500 transition">
+            <h2 className="text-xl font-semibold mb-2">Account</h2>
+            <p className="text-sm text-gray-400">Update your email, username or profile picture</p>
+            <button className="mt-4 cursor-pointer px-4 py-1.5 rounded-full border hover:bg-white hover:text-black transition text-sm uppercase">
+              Edit
+            </button>
+          </div>
+
+          {/* Security */}
+          <div className="bg-white/5 rounded-lg p-6 border cursor-pointer border-white/10 hover:border-purple-500 transition">
+            <h2 className="text-xl font-semibold mb-2">Security</h2>
+            <p className="text-sm text-gray-400">Change your password or manage sessions</p>
+            <button className="mt-4 cursor-pointer px-4 py-1.5 rounded-full border hover:bg-white hover:text-black transition text-sm uppercase">
+              Manage
+            </button>
+          </div>
+
+          {/* Appearance */}
+          <div className="bg-white/5 rounded-lg p-6 border cursor-pointer border-white/10 hover:border-purple-500 transition">
+            <h2 className="text-xl font-semibold mb-2">Appearance</h2>
+            <p className="text-sm text-gray-400">Theme & UI preferences</p>
+            <button className="mt-4 cursor-pointer px-4 py-1.5 rounded-full border hover:bg-white hover:text-black transition text-sm uppercase">
+              Customize
+            </button>
+          </div>
+
+          {/* Notifications */}
+          <div className="bg-white/5 rounded-lg p-6 border border-white/10 hover:border-purple-500 transition">
+            <h2 className="text-xl font-semibold mb-2">Notifications</h2>
+            <p className="text-sm text-gray-400">Email & push notifications preferences</p>
+            <button className="mt-4 px-4 cursor-pointer py-1.5 rounded-full border hover:bg-white hover:text-black transition text-sm uppercase">
+              Configure
+            </button>
+          </div>
+
+          {/* Danger Zone */}
+          <div className="bg-red-900/10 border border-red-500 p-6 rounded-lg col-span-1 md:col-span-2">
+            <h2 className="text-xl font-semibold text-red-500 mb-2">Danger Zone</h2>
+            <p className="text-sm text-red-300">Delete your account permanently</p>
+            <button className="mt-4 cursor-pointer px-4 py-1.5 rounded-full border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition text-sm uppercase">
+              Delete Account
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
-
-export default SettingsPage;

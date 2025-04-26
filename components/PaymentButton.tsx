@@ -76,7 +76,7 @@ const handlePayment = async (amount: number) => {
 };
 
 const PaymentButton = ({ amount }: { amount: number }) => (
-  <button className="uppercase bg-white text-black rounded-xs cursor-pointer px-5 py-1" onClick={() => handlePayment(amount)}>
+  <button className="uppercase bg-white text-black rounded-xs cursor-pointer w-full px-5 py-1" onClick={() => handlePayment(amount)}>
     Pay ₹{amount}
   </button>
 );

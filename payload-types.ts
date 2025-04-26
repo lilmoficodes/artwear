@@ -13,6 +13,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    products: Products
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -47,6 +48,29 @@ export interface UserAuthOperations {
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
+export interface Products {
+  "id": string;
+  "updatedAt": string;
+  "createdAt": string;
+  "productName": string;
+  "productPrice": number;
+  "ProductDescription": string;
+  "productImage": {
+    "createdAt": string,
+    "updatedAt": string,
+    "alt": string,
+    "filename": string,
+    "mimeType": string,
+    "filesize": number,
+    "width": number,
+    "height": number,
+    "focalX": number,
+    "focalY": number,
+    "id": string,
+    "url": string,
+    "thumbnailURL": null
+  };
+}
 export interface User {
   id: string;
   updatedAt: string;
@@ -91,14 +115,14 @@ export interface PayloadPreference {
   };
   key?: string | null;
   value?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
+  | {
+    [k: string]: unknown;
+  }
+  | unknown[]
+  | string
+  | number
+  | boolean
+  | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -123,5 +147,5 @@ export interface Auth {
 
 
 declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
+  export interface GeneratedTypes extends Config { }
 }

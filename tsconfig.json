@@ -35,8 +35,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "three-shims.d.ts"  // <-- Added this line to include the custom shim
+    ".next/types/**/*.ts", "payload.config.ts",
   ],
   "exclude": [
     "node_modules"

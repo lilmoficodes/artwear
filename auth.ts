@@ -70,6 +70,20 @@ callbacks: {
         }
       }
       return !!user;
-    }
+    },
+    // async session({session, token}){
+    // if(session.user && token){
+    // session.user.email = token.email as string;
+    // session.user.image = token.picture as string;
+    // }
+    // return session;
+    // },
+    // async jwt({ token, user}) {
+    //   if (user) {
+    //     token.email = user.email;
+    //     token.picture = user.image; // <-- add this
+    //   }
+    //   return token;
+    // },
   },  
 }) 

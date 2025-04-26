@@ -10,14 +10,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ParticlesBackground from "./ParticlesBackground";
 
-gsap.registerPlugin(useGSAP);
-
 const Navbar = () => {
   const { data: session, status } = useSession();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (isDropdownOpen) {
       gsap.fromTo(
         dropdownRef.current,
@@ -48,14 +46,13 @@ const Navbar = () => {
     <>
       <nav className="rounded-md backdrop-blur-md bg-transparent 
     flex items-center justify-between px-3 p-10 z-50 sticky top-0
-     border border-[rgba(255,255,255,0.3)] uppercase">
+     border border-[rgba(255,255,255,0.3)] uppercase cursor-pointer">
         <ParticlesBackground />
         <div>
           <Link href={"/"}>
             <h1 className="text-xl md:text-3xl">Artwear</h1>
           </Link>
         </div>
-
         {status === "loading" ? (
           <div className="w-full flex-1" />
         ) : session?.user ? (
@@ -74,7 +71,6 @@ const Navbar = () => {
                 <li><IoSettingsOutline size={20} /></li>
               </Link>
             </ul>
-
             <div className="block md:hidden">
               <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                 {isDropdownOpen ? <RxCross2 size={35} /> : <RxHamburgerMenu size={30} />}
