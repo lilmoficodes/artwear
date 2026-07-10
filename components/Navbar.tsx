@@ -11,7 +11,7 @@ import gsap from "gsap";
 import ParticlesBackground from "./ParticlesBackground";
 
 const Navbar = () => {
-  const { data: session, status } = useSession();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -53,9 +53,8 @@ const Navbar = () => {
             <h1 className="text-xl md:text-3xl">Artwear</h1>
           </Link>
         </div>
-        {status === "loading" ? (
+   
           <div className="w-full flex-1" />
-        ) : session?.user ? (
           <>
             <ul className="hidden md:flex gap-3 items-center">
               <Link href={"/products"}>
@@ -77,12 +76,6 @@ const Navbar = () => {
               </button>
             </div>
           </>
-        ) : (
-          <div className="flex gap-3">
-            <SignupBtn />
-            <LoginBtn />
-          </div>
-        )}
       </nav>
       {isDropdownOpen && (
         <>
